@@ -1,0 +1,9 @@
+h1{
+	color: red;
+}
+
+.language_flag{
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+}

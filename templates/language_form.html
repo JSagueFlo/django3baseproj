@@ -1,0 +1,30 @@
+{% load static i18n %}
+<div style="text-align: center;">
+	<form action="/i18n/setlang/" method="post" style="display: inline-block;">
+		{% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+        <input name="language" type="hidden" value="ca" />
+        <button type="submit" style="border: 0px; background: transparent;">
+            <input type="image" src="{% static 'img/catalonia.png' %}" class="language_flag"
+            	   value="{{ 'ca'|language_name_local|title }}" alt="{{ 'ca'|language_name_local|title }}" title="{{ 'ca'|language_name_local|title }}" />
+        </button>
+    </form>
+    <form action="/i18n/setlang/" method="post" style="display: inline-block;">
+		{% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+        <input name="language" type="hidden" value="es" />
+        <button type="submit" style="border: 0px; background: transparent;">
+            <input type="image" src="{% static 'img/spain.jpg' %}" class="language_flag"
+            	   value="{{ 'es'|language_name_local|title }}" alt="{{ 'es'|language_name_local|title }}" title="{{ 'es'|language_name_local|title }}" />
+        </button>
+    </form>
+    <form action="/i18n/setlang/" method="post" style="display: inline-block;">
+		{% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+        <input name="language" type="hidden" value="en" />
+        <button type="submit" style="border: 0px; background: transparent;">
+            <input type="image" src="{% static 'img/great-britain.jpg' %}" class="language_flag"
+            	   value="{{ 'en'|language_name_local|title }}" alt="{{ 'en'|language_name_local|title }}" title="{{ 'en'|language_name_local|title }}" />
+        </button>
+    </form>
+</div>

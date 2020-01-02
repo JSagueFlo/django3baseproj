@@ -14,8 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
+from generic_app.views import HomeView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+	# NOT TRANSLATED URLS
+	# path('admin/', admin.site.urls),
+	path('i18n/', include('django.conf.urls.i18n')),
+	path('', HomeView.as_view(), name="home"),
+	# The following path puts all the urls found
+    # in generic.urls.py inside the url domain.com/generic/...
+    # path('generic/', include('generic.urls')),
 ]
+
+urlpatterns += i18n_patterns(
+	# TRANSLATED URLS
+    path('', HomeView.as_view(), name="home"),
+    path('admin/', admin.site.urls, name="admin_site"),
+    # path('pathurl/', include('appname.urls')),
+)

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %} - Home{% endblock %}
+
+{% block content %}
+	<h1>Home h1 tag</h1>
+
+	<p>context: {{test}}</p>
+
+	<p>{{str_var}}</p>
+	<p>{% trans "name" %}</p>
+	<p>{% blocktrans %}Text to be translated{% endblocktrans %}</p>
+
+	<p>CURRENT LANGUAGE: {{LANGUAGE_CODE}}</p>
+
+	<ul>
+		{% for LANGUAGE in LANGUAGES %}
+		<li>{{LANGUAGE}}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
